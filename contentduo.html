@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiel Content Duo – Business Plan 2026</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .pakete {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .paket {
+            background: var(--card);
+            padding: 28px 22px;
+            position: relative;
+            transition: background .2s;
+        }
+
+        .paket:hover {
+            background: var(--card-h);
+        }
+
+        .p-lbl {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .p-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .p-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--yellow);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .p-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--orange);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 2px;
+        }
+
+        .plist {
+            list-style: none;
+        }
+
+        .plist li {
+            font-size: 12px;
+            color: var(--text2);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+        }
+
+        .plist li::before {
+            content: '✓';
+            color: var(--yellow);
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .plist li:last-child {
+            border-bottom: none;
+        }
+
+        .target-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .tc {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 18px;
+            transition: all .2s;
+        }
+
+        .tc:hover {
+            border-color: var(--yellow);
+            transform: translateY(-2px);
+        }
+
+        .tc-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tc-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .tc-loc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--orange);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .tc p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        @media(max-width:640px) {
+            .pakete {
+                grid-template-columns: 1fr;
+            }
+
+            .target-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">← PITCH '26</a>
+        <div class="nav-links">
+            <a href="index.html">Übersicht</a>
+            <a href="nordcode.html">NORDCODE</a>
+            <a href="feedkiel.html">Feed Kiel</a>
+            <a href="contentduo.html" class="active">Content</a>
+            <a href="microvend.html">MicroVend</a>
+            <a href="kielclean.html">KielClean</a>
+        </div>
+    </nav>
+
+    <div
+        style="min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 28px 48px;position:relative;overflow:hidden;background:linear-gradient(160deg,#0a0800,#050503);">
+        <div class="hero-bg-num" style="color:var(--yellow)">03</div>
+        <div style="max-width:900px;margin:0 auto;width:100%;position:relative;z-index:1;">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <span class="rank-badge"
+                style="background:rgba(59,130,246,.1);color:var(--blue);border:1px solid rgba(59,130,246,.25);">📸 Platz
+                3 — Sofort loslegen</span>
+            <h1><span style="color:var(--yellow)">KIEL</span><br><span
+                    style="color:var(--orange)">CONTENT</span><br><span
+                    style="color:var(--muted);font-size:.45em;letter-spacing:-1px">DUO · FOTOS & REELS</span></h1>
+            <p class="lead" style="max-width:580px;margin-bottom:16px">Fotos und Reels für Kieler Kleinbetriebe, die
+                keine Zeit und kein Budget für professionelle Fotografie haben. <strong>Smartphone reicht. 0€
+                    Startkapital.</strong></p>
+            <div class="kpi-strip">
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--yellow)">0€</div>
+                    <div class="kpi-l">Startkapital</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--orange)">Woche 2</div>
+                    <div class="kpi-l">Erster Auftrag</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--lime)">800€</div>
+                    <div class="kpi-l">Ziel Monat 6</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--cyan)">400€</div>
+                    <div class="kpi-l">Pro Person</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--yellow)">5h</div>
+                    <div class="kpi-l">Aufwand/Woche</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROLLEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">01 — Das Modell</div>
+        <h2>Zwei Rollen. <span style="color:var(--yellow)">Ein Business.</span></h2>
+        <div class="g2">
+            <div class="card" style="border-top:3px solid var(--yellow)">
+                <h3 style="color:var(--yellow)">DU + NICKLAS — THE LENS</h3>
+                <div
+                    style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px">
+                    Fotografie · Editing · Kreation</div>
+                <ul class="rich-list">
+                    <li>Fotos schießen & nachbearbeiten (Lightroom Mobile, kostenlos)</li>
+                    <li>Reels & kurze Videos schneiden (CapCut, kostenlos)</li>
+                    <li>Bildsprache und Ästhetik des Kunden entwickeln</li>
+                    <li>Content-Kalender füllen und liefern</li>
+                    <li>Eigenes Portfolio-Instagram aufbauen (@kielcontentduo)</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top:3px solid var(--orange)">
+                <h3 style="color:var(--orange)">PAUL — THE FACE</h3>
+                <div
+                    style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px">
+                    Sales · Kommunikation · Captions</div>
+                <ul class="rich-list">
+                    <li>Erstkontakt mit Betrieben – rein gehen, Pitch in 60 Sek.</li>
+                    <li>Kundengespräche führen, Preise verhandeln</li>
+                    <li>WhatsApp-Kommunikation mit Kunden</li>
+                    <li>Neue Spots und Betriebe in Kiel scouten</li>
+                    <li>Rechnungen schreiben (Canva-Vorlage kostenlos)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ZIELKUNDEN -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">02 — Wer zahlt euch</div>
+            <h2>Kieler Zielkunden – <span style="color:var(--yellow)">konkret</span></h2>
+            <div class="target-cards">
+                <div class="tc">
+                    <span class="tc-icon">🍜</span>
+                    <div class="tc-name">Restaurants & Cafés</div>
+                    <div class="tc-loc">Holtenauer Str. · Gaarden · Innenstadt</div>
+                    <p>Die meisten kleinen Kieler Restaurants haben null Instagram-Präsenz oder 3 Jahre alte
+                        Handy-Fotos. <strong>Essen fotografieren ist der einfachste Einstieg</strong> – Ergebnis sofort
+                        sichtbar.</p>
+                </div>
+                <div class="tc">
+                    <span class="tc-icon">🌿</span>
+                    <div class="tc-name">Floristik & Pflanzenshops</div>
+                    <div class="tc-loc">Innenstadt · Brunswik · Wochenmarkt</div>
+                    <p>Paul kennt Pflanzen = natürlicher Gesprächseinstieg. Blumen sind fotogen, Betreiber sind oft
+                        kreativ aber zeittechnisch überfordert. <strong>Perfekte Nische.</strong></p>
+                </div>
+                <div class="tc">
+                    <span class="tc-icon">💇</span>
+                    <div class="tc-name">Friseursalons & Beauty</div>
+                    <div class="tc-loc">Holtenauer Str. · Ravensberg</div>
+                    <p>Vorher-Nachher-Content, Salon-Atmosphäre, Team-Fotos. Friseure sind stark auf Instagram – viele
+                        machen es aber schlecht. <strong>Niedrige Hemmschwelle, hoher Bedarf.</strong></p>
+                </div>
+                <div class="tc">
+                    <span class="tc-icon">🏋️</span>
+                    <div class="tc-name">Fitnessstudios (unabhängig)</div>
+                    <div class="tc-loc">Kiel-weit · 33+ Studios</div>
+                    <p>Unabhängige Studios ohne Marketing-Budget brauchen Stimmungsfotos, Trainer-Portraits,
+                        Aktionsshots. <strong>Monatlicher Bedarf = Abo-Potenzial.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PAKETE -->
+    <div class="sec-inner">
+        <div class="eyebrow">03 — Preismodell</div>
+        <h2>Eure <span style="color:var(--orange)">drei Pakete</span></h2>
+        <div class="pakete">
+            <div class="paket">
+                <div class="p-lbl">Einstieg · Einmalig</div>
+                <div class="p-title">Starter</div>
+                <span class="p-price">79€</span>
+                <ul class="plist">
+                    <li>1 Shooting-Termin (~1,5 Std.)</li>
+                    <li>20 fertige Fotos, bearbeitet</li>
+                    <li>Lieferung per WeTransfer</li>
+                    <li>Ideal als Erstkontakt</li>
+                    <li>Kein Risiko für den Kunden</li>
+                </ul>
+            </div>
+            <div class="paket">
+                <div class="p-badge">BESTSELLER</div>
+                <div class="p-lbl">Abo · Monatlich</div>
+                <div class="p-title">Monat</div>
+                <span class="p-price">149€ <span style="font-size:14px;color:var(--muted)">/Mo.</span></span>
+                <ul class="plist">
+                    <li>2 Shootings / Monat</li>
+                    <li>40 fertige Fotos</li>
+                    <li>3 fertige Reels / Monat</li>
+                    <li>Caption-Texte auf Wunsch</li>
+                    <li><strong>3 Kunden = 447€/Mo.</strong></li>
+                </ul>
+            </div>
+            <div class="paket">
+                <div class="p-lbl">Premium · Einmalig</div>
+                <div class="p-title">Launch</div>
+                <span class="p-price">249€</span>
+                <ul class="plist">
+                    <li>Für Neueröffnungen</li>
+                    <li>Großes Shooting (3–4 Std.)</li>
+                    <li>60+ Fotos + 5 Reels</li>
+                    <li>Instagram-Profil Setup</li>
+                    <li>Erste 9 Posts geplant</li>
+                </ul>
+            </div>
+        </div>
+        <div class="callout">
+            <p><strong>Die Logik:</strong> Starter (79€) = Türöffner ohne Risiko. Sobald der Betreiber die Fotos sieht,
+                Upgrade auf Monats-Abo fast automatisch. <strong>3 Monats-Abos = 447€/Mo. bei ~6h gemeinsamer Arbeit.
+                    Das sind 74€/h für zwei Schüler.</strong></p>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FINANZEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">04 — Zahlen</div>
+        <h2>Finanzplan – <span style="color:var(--yellow)">12 Monate</span></h2>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+            <div style="background:linear-gradient(135deg,rgba(251,191,36,.25),rgba(255,107,53,.1));padding:18px 24px;">
+                <span style="font-size:16px;font-weight:800;color:#fff">Content Duo Kiel — Projektion</span>
+            </div>
+            <table class="ftable">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Aufträge/Monat</th>
+                        <th>Monatsumsatz</th>
+                        <th>Kosten (Apps,Transport)</th>
+                        <th>Pro Person</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mo. 1–2 · Aufbau</strong></td>
+                        <td>1–2 Starter</td>
+                        <td>80–160€</td>
+                        <td class="neg">−20€</td>
+                        <td class="pos">30–70€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 3–5 · Tritt fassen</strong></td>
+                        <td>2 Starter + 1 Abo</td>
+                        <td>300–450€</td>
+                        <td class="neg">−30€</td>
+                        <td class="pos">135–210€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 6–9 · Stabil</strong></td>
+                        <td>3–4 Abos + Extras</td>
+                        <td>600–900€</td>
+                        <td class="neg">−50€</td>
+                        <td class="pos">275–425€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 10–12 · Ziel</strong></td>
+                        <td>5+ Monats-Abos</td>
+                        <td>900–1.400€</td>
+                        <td class="neg">−60€</td>
+                        <td class="pos">420–670€</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="4"><strong>Kumuliert nach 12 Monaten (gesamt)</strong></td>
+                        <td>~4.000–8.000€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TIMELINE -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">05 — Fahrplan</div>
+            <h2>Die ersten <span style="color:var(--orange)">8 Wochen</span></h2>
+            <div class="tl">
+                <div class="tl-item">
+                    <div class="tl-phase">Woche 1 · Setup</div>
+                    <div class="tl-title">Setup in 3 Stunden</div>
+                    <div class="tl-body"><strong>Du/Nicklas:</strong> Lightroom Mobile + CapCut installieren, 10–15
+                        Testfotos schießen (Café, Park, Pflanzenshop), Instagram-Portfolio-Account anlegen.
+                        <strong>Paul:</strong> Liste von 20 Kieler Kleinbetrieben ohne gute Instagram-Präsenz.
+                        Canva-Visitenkarte gestalten.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Woche 2 · Erster Walk</div>
+                    <div class="tl-title">Holtenauer Str. oder Gaarden abklappern</div>
+                    <div class="tl-body"><strong>Paul geht rein, du wartest draußen.</strong> Pitch: „Wir machen Fotos
+                        für euren Instagram – 79€ für 20 Bilder, kein Risiko." Bei 10 Versuchen: min. 1 Ja. Kein Nein
+                        ist persönlich gemeint.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Woche 3 · Erstes Shooting</div>
+                    <div class="tl-title">Erstes Shooting & erstes Geld</div>
+                    <div class="tl-body">Termin vereinbaren, hinfahren, 30–40 Fotos schießen, 20 beste bearbeiten.
+                        <strong>Ergebnis schicken, Rechnung stellen.</strong> Erster echter Auftrag = alles andere wird
+                        danach leichter.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Woche 4–8 · Upsell</div>
+                    <div class="tl-title">Erste Abos konvertieren</div>
+                    <div class="tl-body">Nach Lieferung fragen: "Wollt ihr das monatlich? 149€, 40 Fotos + 3 Reels." Mit
+                        3 aktiven Abos habt ihr <strong>ein stabiles, wiederkehrendes Einkommen</strong> für ~6h
+                        gemeinsamer Arbeit pro Woche.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PRO/CON -->
+    <div class="sec-inner">
+        <div class="eyebrow">06 — Abwägung</div>
+        <h2>Ehrliches <span style="color:var(--text)">Pro/Contra</span></h2>
+        <div class="procon">
+            <div class="pro-box" style="border-top-color:var(--yellow)">
+                <h4 style="color:var(--yellow)">✓ Dafür spricht</h4>
+                <ul>
+                    <li>0€ Startkapital – Smartphone ist das Werkzeug</li>
+                    <li>Sofort sichtbare, emotionale Ergebnisse – leicht zu verkaufen</li>
+                    <li>Hohe Margen (fast keine Kosten außer Zeit)</li>
+                    <li>Schnellster Einstieg aller 5 Modelle</li>
+                    <li>Baut automatisch ein Portfolio auf</li>
+                    <li>Kein Erklärungsbedarf – jeder versteht Fotos</li>
+                </ul>
+            </div>
+            <div class="con-box">
+                <h4>✗ Dagegen spricht</h4>
+                <ul>
+                    <li>Man muss immer vor Ort sein – kein Remote-Workflow</li>
+                    <li>Skalierung durch eigene Körperkraft limitiert</li>
+                    <li>Kunde muss Zugang und Input bei jedem Shooting geben</li>
+                    <li>Schwächer skalierbar als rein digitale Modelle</li>
+                    <li>Wetterabhängig für Outdoor-Shootings</li>
+                </ul>
+            </div>
+        </div>
+        <div class="verdict">
+            <p><strong>Fazit:</strong> Content Duo ist das einfachste Modell für den sofortigen Start. Paul kann es
+                sofort verkaufen, ohne langwierige Erklärungen. Aber langfristig ist es das am wenigsten skalierbare
+                Modell. <strong>Ideal für die ersten 2–3 Monate als Cash-Generator</strong> während parallele Modelle
+                aufgebaut werden.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom:12px"><a href="feedkiel.html">← Feed Kiel</a> &nbsp;·&nbsp; <a
+                href="index.html">Übersicht</a> &nbsp;·&nbsp; <a href="microvend.html">MicroVend →</a></div>
+        JULIAN · PAUL · NICKLAS — KIEL BUSINESS PITCH 2026
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            document.getElementById('progressBar').style.width = p + '%';
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroVend Kiel – Business Plan 2026</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .phasen {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .phase-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 22px 20px;
+        }
+
+        .ph-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .ph-title {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .ph-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+
+        .standorte {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .stand {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 18px 16px;
+            transition: all .2s;
+        }
+
+        .stand:hover {
+            border-color: var(--orange);
+        }
+
+        .stand-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stand-adresse {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--orange);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .stand p {
+            font-size: 11.5px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .recht-g {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .r-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 16px;
+        }
+
+        .r-box.w {
+            border-left-color: var(--yellow);
+        }
+
+        .r-box.d {
+            border-left-color: var(--pink);
+        }
+
+        .r-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .r-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .r-box p {
+            font-size: 11.5px;
+            color: var(--text2);
+            line-height: 1.65;
+        }
+
+        @media(max-width:640px) {
+
+            .phasen,
+            .standorte,
+            .recht-g {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">← PITCH '26</a>
+        <div class="nav-links">
+            <a href="index.html">Übersicht</a>
+            <a href="nordcode.html">NORDCODE</a>
+            <a href="feedkiel.html">Feed Kiel</a>
+            <a href="contentduo.html">Content</a>
+            <a href="microvend.html" class="active">MicroVend</a>
+            <a href="kielclean.html">KielClean</a>
+        </div>
+    </nav>
+
+    <div
+        style="min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 28px 48px;position:relative;overflow:hidden;background:linear-gradient(160deg,#080500,#060808);">
+        <div class="hero-bg-num" style="color:var(--orange)">04</div>
+        <div style="max-width:900px;margin:0 auto;width:100%;position:relative;z-index:1;">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <span class="rank-badge"
+                style="background:rgba(255,107,53,.1);color:var(--orange);border:1px solid rgba(255,107,53,.25);">🏪
+                Platz 4 — Physisches Asset</span>
+            <h1><span style="color:var(--orange)">MICRO</span><br><span style="color:var(--yellow)">VEND</span><br><span
+                    style="color:var(--muted);font-size:.5em;letter-spacing:-1px">KIEL · AUTOMATEN-BUSINESS</span></h1>
+            <p class="lead" style="max-width:580px;margin-bottom:16px">Das einzige Modell, das <strong>physische
+                    Assets</strong> aufbaut, die 24/7 Geld erwirtschaften – auch an Feiertagen wenn ihr schläft.
+                Einstieg über Kommissionsregale, Ausbau zu echten Automaten.</p>
+            <div class="kpi-strip">
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--orange)">~500€</div>
+                    <div class="kpi-l">Startkapital Phase 1</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--yellow)">Mo. 3</div>
+                    <div class="kpi-l">Break-Even</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--lime)">600€</div>
+                    <div class="kpi-l">Ziel Netto Mo. 9</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--cyan)">30%+</div>
+                    <div class="kpi-l">Marge auf Produkte</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">01 — Das Modell</div>
+        <h2>Zwei Phasen. <span style="color:var(--orange)">Null bis Automat.</span></h2>
+        <div class="phasen">
+            <div class="phase-box" style="border-top:3px solid var(--lime)">
+                <div class="ph-tag">Phase 1 · Sofort startbar</div>
+                <div class="ph-title">Kommissionsregal</div>
+                <div class="ph-price">~500€</div>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:14px">Kein eigener Automat. Du
+                    bietest einem Laden an, ein kleines Regal mit deinen Produkten aufzustellen. Du lieferst, der Laden
+                    kassiert mit und bekommt 15–20% Provision. <strong style="color:var(--text)">Null Eigenkapital für
+                        Maschinen, null Risiko für den Betrieb.</strong></p>
+                <ul class="rich-list">
+                    <li>Startprodukte: Energy Drinks, Snacks, Protein-Riegel, Handyladekabel</li>
+                    <li>Einkauf bei Metro Kiel oder Böttcher B2B</li>
+                    <li>Marge: ca. 35–45% auf Verkaufspreis</li>
+                    <li>Keine Investition in Geräte nötig</li>
+                    <li>Bestandskunde kann Automat bekommen sobald Umsatz stimmt</li>
+                </ul>
+            </div>
+            <div class="phase-box" style="border-top:3px solid var(--orange)">
+                <div class="ph-tag">Phase 2 · Nach 3–6 Monaten</div>
+                <div class="ph-title">Gebraucht-Automat + Nayax</div>
+                <div class="ph-price">1.500–3.400€</div>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:14px">Gebrauchter
+                    Snack-/Kaltgetränkeautomat für <strong style="color:var(--text)">1.500–3.000€</strong> (Quoka, eBay
+                    Kleinanzeigen Kiel). Dazu: <strong style="color:var(--text)">Nayax Cashless-Modul
+                        (380–420€)</strong> für Kartenzahlung. Danach: echter Automat an Top-Standort.</p>
+                <ul class="rich-list">
+                    <li>Automat läuft 24/7 – auch an Feiertagen und Wochenenden</li>
+                    <li>Umsatz/Standort: 300–600€ brutto pro Monat</li>
+                    <li>Nach Abzug Wareneinsatz: 120–250€ Netto/Automat/Mo.</li>
+                    <li>Nayax-Modul: Echtzeit-Daten, Füllstand-Monitoring</li>
+                    <li>3 Automaten = ~500–700€ netto/Monat</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STANDORTE -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">02 — Wo aufstellen</div>
+            <h2>Top-Standorte in <span style="color:var(--yellow)">Kiel</span></h2>
+            <div class="standorte">
+                <div class="stand">
+                    <div class="stand-name">🏋️ FitX / McFit / unabhängige Studios</div>
+                    <div class="stand-adresse">Gaarden, Holtenauer Str., Kiel-Nord</div>
+                    <p>Fitnessstudios sind die <strong>besten Automaten-Standorte</strong>. Kunden sind kaufbereit
+                        (Protein, Getränke nach dem Training). 33+ Studios in Kiel = riesiges Marktpotenzial.</p>
+                </div>
+                <div class="stand">
+                    <div class="stand-name">💻 Fleet7 & StarterKitchen</div>
+                    <div class="stand-adresse">Kiel Innovation Center, Hafenbereich</div>
+                    <p>Kieler Coworking-Spaces mit 50–150 täglichen Besuchern. Kaffee, Snacks, Energie-Drinks.
+                        <strong>Hohes Durchschnittseinkommen der Nutzer = hohe Kaufbereitschaft.</strong></p>
+                </div>
+                <div class="stand">
+                    <div class="stand-name">✂️ Friseursalons & Beauty-Studios</div>
+                    <div class="stand-adresse">Holtenauer Str., Ravensberg, Schreventeich</div>
+                    <p>Wartebereiche mit 20–40 Kunden täglich. Kleines Regal mit Pflegeprodukten, Haarspray, Snacks für
+                        Begleitpersonen. <strong>Perfekt für Phase-1-Kommissionsregal.</strong></p>
+                </div>
+                <div class="stand">
+                    <div class="stand-name">🏫 CAU-Kiel Aufenthaltsräume</div>
+                    <div class="stand-adresse">Universität Kiel, Campus Nord & Süd</div>
+                    <p>25.000 Studierende. Hoher Durchsatz, günstige Mietkonditionen durch AStA-Kooperation möglich.
+                        <strong>Snacks, Kaffeepads, Energie-Drinks.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FINANZEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">03 — Zahlen</div>
+        <h2>Finanzen – <span style="color:var(--lime)">18 Monate</span></h2>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+            <div style="background:linear-gradient(135deg,rgba(255,107,53,.25),rgba(251,191,36,.1));padding:18px 24px;">
+                <span style="font-size:16px;font-weight:800;color:#fff">MicroVend Kiel — Projektion</span>
+            </div>
+            <table class="ftable">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Setup</th>
+                        <th>Umsatz/Mo.</th>
+                        <th>Kosten/Mo.</th>
+                        <th>Netto/Mo.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mo. 1–2 · Kommissionsregal ×2</strong></td>
+                        <td class="neg">−500€ Warenbestand</td>
+                        <td>200–350€</td>
+                        <td class="neg">−80€ Nachfüllung</td>
+                        <td class="pos">120–270€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 3–5 · Regal ×4 + Ersparnis</strong></td>
+                        <td>Reinvestition</td>
+                        <td>400–700€</td>
+                        <td class="neg">−150€</td>
+                        <td class="pos">250–550€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 6–8 · 1. Gebraucht-Automat</strong></td>
+                        <td class="neg">−2.000€ einmalig</td>
+                        <td>700–1.000€</td>
+                        <td class="neg">−250€</td>
+                        <td class="pos">200–450€ (netto durch Invest)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 9–12 · 2–3 Automaten stabil</strong></td>
+                        <td>Break-Even Automat</td>
+                        <td>1.200–1.800€</td>
+                        <td class="neg">−400€</td>
+                        <td class="pos">500–900€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 13–18 · 3–5 Automaten</strong></td>
+                        <td>Skalierung</td>
+                        <td>2.000–3.500€</td>
+                        <td class="neg">−700€</td>
+                        <td class="pos">800–1.500€</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="4"><strong>Kumuliert nach 18 Monaten</strong></td>
+                        <td>~8.000–17.000€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- RECHTLICHES -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">04 — Rechtliches</div>
+            <h2>Was ihr <span style="color:var(--orange)">braucht</span></h2>
+            <div class="recht-g">
+                <div class="r-box">
+                    <div class="r-tag">Pflicht · Woche 1</div>
+                    <h4>Gewerbeanmeldung Kiel</h4>
+                    <p>Stadtamt, Rathausplatz 4. <strong>~30€.</strong> Tätigkeit: "Handel mit Getränken und
+                        Lebensmitteln über Automaten und Kommissionshandel."</p>
+                </div>
+                <div class="r-box">
+                    <div class="r-tag">Pflicht · Vor Verkauf</div>
+                    <h4>LUCID-Verpackungsregister</h4>
+                    <p>Für Produkte in Einwegverpackungen: kostenlose Registrierung bei LUCID (Bundeszentralstelle).
+                        <strong>Pflicht für alle die Verpackungen in Verkehr bringen.</strong></p>
+                </div>
+                <div class="r-box w">
+                    <div class="r-tag">Lebensmittel</div>
+                    <h4>Gesundheitsamt Kiel</h4>
+                    <p>Beim ersten Lebensmittelverkauf: formloses Meldung beim <strong>Gesundheitsamt Kiel</strong>
+                        (Fleethörn 18–24). Kostenlos, kurzer Brief reicht.</p>
+                </div>
+                <div class="r-box d">
+                    <div class="r-tag">Wichtig</div>
+                    <h4>Standortvertrag + MHD-Pflicht</h4>
+                    <p>Schriftlicher Vertrag mit Standbetreiber (Provision, Laufzeit, Kündigung). <strong>MHD
+                            (Mindesthaltbarkeitsdatum)</strong> muss beim Befüllen immer geprüft werden –
+                        Haftungsrisiko.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PRO/CON -->
+    <div class="sec-inner">
+        <div class="eyebrow">05 — Abwägung</div>
+        <h2>Ehrliches <span style="color:var(--text)">Pro/Contra</span></h2>
+        <div class="procon">
+            <div class="pro-box" style="border-top-color:var(--orange)">
+                <h4 style="color:var(--orange)">✓ Dafür spricht</h4>
+                <ul>
+                    <li>Einziges Modell das physische Assets aufbaut (Eigentum)</li>
+                    <li>Passiv-Einnahmen: Automat generiert Geld auch nachts</li>
+                    <li>Skaliert durch mehr Standorte, nicht durch mehr Zeit</li>
+                    <li>Phase 1 (Kommissionsregal) hat kein Automat-Risiko</li>
+                    <li>Kein KI nötig – Paul kann das sofort solo angehen</li>
+                    <li>Nayax-Modul gibt Echtzeit-Daten über Füllstand und Umsatz</li>
+                </ul>
+            </div>
+            <div class="con-box">
+                <h4>✗ Dagegen spricht</h4>
+                <ul>
+                    <li>Wareneinkauf und Automaten-Invest binden Kapital</li>
+                    <li>Auto nötig für regelmäßige Befüllung in Kiel</li>
+                    <li>Vandalismusgefahr in bestimmten Kieler Stadtteilen (Gaarden)</li>
+                    <li>MHD-Kontrolle erfordert regelmäßige Besuche</li>
+                    <li>Maschinen können kaputt gehen (Wartungskosten)</li>
+                    <li>Standortverhandlung braucht Überzeugungskraft</li>
+                </ul>
+            </div>
+        </div>
+        <div class="verdict">
+            <p><strong>Fazit:</strong> MicroVend ist das einzige Modell mit physischen Assets – das ist sein größter
+                Vorteil aber auch sein größter Nachteil. <strong>Zum Start ideal als Nebenprojekt parallel zu einem der
+                    digitalen Modelle.</strong> Paul kann Kommissionsregale akquirieren während Julian NORDCODE baut.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom:12px"><a href="contentduo.html">← Content Duo</a> &nbsp;·&nbsp; <a
+                href="index.html">Übersicht</a> &nbsp;·&nbsp; <a href="kielclean.html">KielClean →</a></div>
+        JULIAN · PAUL · NICKLAS — KIEL BUSINESS PITCH 2026
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            document.getElementById('progressBar').style.width = p + '%';
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+        });
+    </script>
+</body>
+
+</html>

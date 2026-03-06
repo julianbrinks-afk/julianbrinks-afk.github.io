@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORDCODE Agency – Business Plan Kiel 2026</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(160deg, #05080f 0%, #070514 100%);
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(59, 130, 246, .04)1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, .04)1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+        }
+
+        .produkte {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 24px;
+        }
+
+        .produkt {
+            background: var(--card);
+            padding: 30px 24px;
+            position: relative;
+            transition: background .2s;
+        }
+
+        .produkt:hover {
+            background: var(--card-h);
+        }
+
+        .p-tier {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .p-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .p-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 26px;
+            font-weight: 500;
+            color: var(--cyan);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .p-price .period {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .p-list {
+            list-style: none;
+        }
+
+        .p-list li {
+            font-size: 12px;
+            color: #667;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+        }
+
+        .p-list li::before {
+            content: '→';
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+
+        .p-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--pink);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 2px;
+        }
+
+        .kunden-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .kunde {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 18px;
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 14px;
+            align-items: start;
+            transition: all .2s;
+        }
+
+        .kunde:hover {
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .kunde-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            border-radius: 4px;
+        }
+
+        .kunde-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .kunde-loc {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--blue);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .kunde p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .recht-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .recht {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--green);
+            border-radius: 0 8px 8px 0;
+            padding: 18px 18px;
+        }
+
+        .recht.warn {
+            border-left-color: var(--yellow);
+        }
+
+        .recht-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .recht h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .recht p {
+            font-size: 12px;
+            color: var(--text2);
+            line-height: 1.65;
+        }
+
+        .recht strong {
+            color: var(--text);
+        }
+
+        @media(max-width:640px) {
+            .produkte {
+                grid-template-columns: 1fr;
+            }
+
+            .kunden-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recht-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">← PITCH '26</a>
+        <div class="nav-links">
+            <a href="index.html">Übersicht</a>
+            <a href="nordcode.html" class="active">NORDCODE</a>
+            <a href="feedkiel.html">Feed Kiel</a>
+            <a href="contentduo.html">Content</a>
+            <a href="microvend.html">MicroVend</a>
+            <a href="kielclean.html">KielClean</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="page-hero"
+        style="min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 28px 48px;position:relative;overflow:hidden;">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-bg-num" style="color:var(--accent)">01</div>
+        <div style="max-width:900px;margin:0 auto;width:100%;position:relative;z-index:1;">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <span class="rank-badge"
+                style="background:rgba(124,58,237,.12);color:var(--accent);border:1px solid rgba(124,58,237,.3);">🏆
+                Platz 1 — Der Gamechanger</span>
+            <h1><span style="color:var(--blue)">NORD</span><span style="color:var(--accent)">CODE</span><br><span
+                    style="color:var(--muted);font-size:.6em">AGENCY</span></h1>
+            <p class="lead" style="max-width:600px;margin-bottom:16px">KI-Tools, Websites und Automationen für Kieler
+                Kleinbetriebe — die dafür sonst <strong>1.500–5.000€ an klassische Agenturen</strong> zahlen würden. Wir
+                liefern es besser, schneller und für einen Bruchteil des Preises.</p>
+            <div class="kpi-strip">
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--accent)">0€</div>
+                    <div class="kpi-l">Startkapital</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--cyan)">Woche 2</div>
+                    <div class="kpi-l">Erster Auftrag</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--green)">400€</div>
+                    <div class="kpi-l">Ziel /Person Mo.4</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--blue)">5–8h</div>
+                    <div class="kpi-l">Pro Woche realistisch</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--accent)">∞</div>
+                    <div class="kpi-l">Skalierbarkeit</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WARUM DAS KLAPPT -->
+    <div class="sec-inner">
+        <div class="eyebrow">01 — Das Modell</div>
+        <h2>Warum das in Kiel 2026 <span style="color:var(--accent)">funktioniert</span></h2>
+        <div class="g2">
+            <div class="card">
+                <h3 style="color:var(--cyan)">Das Problem auf dem Markt</h3>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8">Kieler Kleinbetriebe – Restaurants,
+                    Handwerker, Friseursalons – haben <strong style="color:var(--text)">akuten digitalen
+                        Nachholbedarf</strong>. Viele haben keine Website, keine Online-Buchung, keinen
+                    Social-Media-Content. Eine klassische Agentur kostet sie <strong
+                        style="color:var(--text)">1.500–5.000€</strong> für eine Website. Das können die meisten nicht
+                    zahlen.<br><br>Gleichzeitig gibt es KI-Tools die in 2 Stunden erledigen, wofür Agenturen 2 Wochen
+                    brauchen.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--cyan)">Unser unfairer Vorteil</h3>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8">Julian baut bereits ein Website-Tool. Er
+                    weiß wie man mit KI Sachen baut die echte Probleme lösen. Paul redet mit Menschen wie andere Leute
+                    Luft holen. <strong style="color:var(--text)">Das ist eine Kombination, die die meisten Agenturen
+                        mit 10 Mitarbeitern nicht haben.</strong><br><br>Kein Betreiber fragt nach dem Alter wenn das
+                    Ergebnis auf dem Tisch liegt. Wir kommen nicht mit einem Pitch – wir kommen mit einem <strong
+                        style="color:var(--text)">fertigen Demo ihres eigenen Betriebs.</strong></p>
+            </div>
+        </div>
+
+        <!-- ROLLEN -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">02 — Wer macht was</div>
+            <h2>Eure <span style="color:var(--orange)">Rollenverteilung</span></h2>
+            <div class="g2">
+                <div class="card" style="border-top:3px solid var(--blue)">
+                    <div
+                        style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.15em;margin-bottom:8px">
+                        ROLLE_01</div>
+                    <h3 style="color:var(--blue);font-size:22px">DU + NICKLAS — THE BUILDER</h3>
+                    <div
+                        style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:18px">
+                        Technik · KI · Vibecodung · Automatisierung</div>
+                    <ul class="rich-list">
+                        <li>Websites bauen mit Framer, Webflow oder eigenem Tool</li>
+                        <li>KI-Automationen mit Make.com oder n8n zusammenklicken</li>
+                        <li>Einfache Chatbots und FAQ-Systeme konfigurieren</li>
+                        <li>Content-Kalender per GPT-API automatisch generieren</li>
+                        <li>Kundendemos vorbereiten – fertige Ergebnisse, kein Versprechen</li>
+                        <li>Prozesse dokumentieren damit Skalierung möglich wird</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top:3px solid var(--cyan)">
+                    <div
+                        style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.15em;margin-bottom:8px">
+                        ROLLE_02</div>
+                    <h3 style="color:var(--cyan);font-size:22px">PAUL — THE CLOSER</h3>
+                    <div
+                        style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:18px">
+                        Sales · Kunden · Kommunikation · Akquise</div>
+                    <ul class="rich-list">
+                        <li>Kieler Betriebe direkt ansprechen – rein gehen, zeigen, abschließen</li>
+                        <li>WhatsApp und E-Mail Kommunikation mit Bestandskunden</li>
+                        <li>Neue Zielkunden scouten (Holtenauer Str., Gaarden, Innenstadt)</li>
+                        <li>Rechnungen stellen und Zahlungen nachverfolgen</li>
+                        <li>Kundenfeedback sammeln und weitergeben</li>
+                        <li>Netzwerk aufbauen – ein Kunde empfiehlt den nächsten</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PRODUKTE & PREISE -->
+    <div class="sec-inner">
+        <div class="eyebrow">03 — Was ihr verkauft</div>
+        <h2>Drei Produkte. <span style="color:var(--cyan)">Klare Preise.</span></h2>
+        <div class="produkte">
+            <div class="produkt">
+                <div class="p-tier">Einstieg · Einmalig</div>
+                <div class="p-name">One-Pager</div>
+                <span class="p-price">149–249€</span>
+                <ul class="p-list">
+                    <li>Eine saubere Landingpage</li>
+                    <li>Öffnungszeiten, Kontakt, Google Maps</li>
+                    <li>Mobil-optimiert (responsive)</li>
+                    <li>Fertig in 48 Stunden</li>
+                    <li>Ideal als Türöffner</li>
+                </ul>
+            </div>
+            <div class="produkt">
+                <div class="hot">★ CASHFLOW</div>
+                <div class="p-tier">Kern-Produkt · Monatlich</div>
+                <div class="p-name">Content-Abo</div>
+                <span class="p-price">99€ <span class="period">/ Mo.</span></span>
+                <ul class="p-list">
+                    <li>30 KI-generierte Posts/Monat</li>
+                    <li>Fertige Captions & Hashtags</li>
+                    <li>1× monatlicher Update-Call</li>
+                    <li>Kein Aufwand für den Kunden</li>
+                    <li><strong>5 Kunden = 495€/Mo. passiv</strong></li>
+                </ul>
+            </div>
+            <div class="produkt">
+                <div class="p-tier">Premium · Einmalig</div>
+                <div class="p-name">KI-Automation</div>
+                <span class="p-price">299–499€</span>
+                <ul class="p-list">
+                    <li>WhatsApp-FAQ-Bot</li>
+                    <li>Auto-Angebotserstellung</li>
+                    <li>Buchungslink-Integration</li>
+                    <li>Stellenanzeigen-Optimierung</li>
+                    <li>+ 29€/Mo. Wartung optional</li>
+                </ul>
+            </div>
+        </div>
+        <div class="callout" style="margin-top:20px">
+            <p><strong>Die Logik:</strong> One-Pager als Türöffner (149€, fertig in 48h). Sobald der Betreiber sieht wie
+                gut es aussieht, Convert auf Content-Abo (99€/Mo). KI-Automation als Premium-Upsell. <strong>Ein Kunde
+                    kann über Zeit bis zu 600€+ Gesamtwert bringen.</strong></p>
+        </div>
+
+        <!-- KI TOOLS STACK -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">04 — Tool-Stack</div>
+            <h2>Was ihr <span style="color:var(--blue)">nutzt</span></h2>
+            <div class="tool-grid">
+                <div class="tool">
+                    <div class="tool-name">ChatGPT / Claude</div>
+                    <div class="tool-use">Captions, Texte, Konzepte</div>
+                    <div class="tool-cost">~20€/Mo.</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Canva Pro</div>
+                    <div class="tool-use">Grafiken & Templates</div>
+                    <div class="tool-cost">~13€/Mo.</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Make.com</div>
+                    <div class="tool-use">Automationen & Flows</div>
+                    <div class="tool-cost">0€ (free tier)</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Buffer</div>
+                    <div class="tool-use">Auto-Posting</div>
+                    <div class="tool-cost">0€ (free tier)</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Framer / Webflow</div>
+                    <div class="tool-use">Websites bauen</div>
+                    <div class="tool-cost">0–15€/Mo.</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">n8n</div>
+                    <div class="tool-use">Komplexe Automationen</div>
+                    <div class="tool-cost">Self-hosted: 0€</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">CapCut</div>
+                    <div class="tool-use">Reels schneiden</div>
+                    <div class="tool-cost">0€</div>
+                </div>
+                <div class="tool">
+                    <div class="tool-name">Stripe</div>
+                    <div class="tool-use">Zahlungen empfangen</div>
+                    <div class="tool-cost">1.4%+0.25€/Tx</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ZIELKUNDEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">05 — Wer zahlt euch</div>
+        <h2>Kieler Zielkunden – <span style="color:var(--cyan)">konkret</span></h2>
+        <div class="kunden-grid">
+            <div class="kunde">
+                <div class="kunde-icon">🍜</div>
+                <div>
+                    <div class="kunde-name">Restaurants & Cafés</div>
+                    <div class="kunde-loc">Holtenauer Str. · Gaarden · Innenstadt</div>
+                    <p>Brauchen Speisekarte online, Öffnungszeiten, Instagram-Präsenz. One-Pager 149€ ist für jeden
+                        machbar.</p>
+                </div>
+            </div>
+            <div class="kunde">
+                <div class="kunde-icon">💇</div>
+                <div>
+                    <div class="kunde-name">Friseursalons & Beauty</div>
+                    <div class="kunde-loc">Holtenauer Str. · Ravensberg · Schreventeich</div>
+                    <p>Brauchen Online-Buchungssystem und Instagram. Conversion durch Vorher-Nachher-Content extrem
+                        hoch.</p>
+                </div>
+            </div>
+            <div class="kunde">
+                <div class="kunde-icon">🔧</div>
+                <div>
+                    <div class="kunde-name">Handwerker & KFZ-Betriebe</div>
+                    <div class="kunde-loc">Gaarden-Süd · Wellingdorf · Neumühlen</div>
+                    <p>Oft nur Google-Maps-Eintrag, keine Website. Aber sie bekommen kontinuierlich Anfragen – die
+                        wollen wir für sie automatisieren.</p>
+                </div>
+            </div>
+            <div class="kunde">
+                <div class="kunde-icon">🏋️</div>
+                <div>
+                    <div class="kunde-name">Fitnessstudios (unabhängig)</div>
+                    <div class="kunde-loc">Kiel-weit · 33+ Studios</div>
+                    <p>Unabhängige Studios ohne Marketing-Budget. Brauchen Content, Neuanmeldungen-Funnels und
+                        Community-Building.</p>
+                </div>
+            </div>
+            <div class="kunde">
+                <div class="kunde-icon">🌿</div>
+                <div>
+                    <div class="kunde-name">Floristik & Pflanzenshops</div>
+                    <div class="kunde-loc">Innenstadt · Brunswik · Wochenmarkt</div>
+                    <p>Visuell perfektes Produkt für Social Media. Betreiber sind kreativ aber zeittechnisch
+                        überfordert.</p>
+                </div>
+            </div>
+            <div class="kunde">
+                <div class="kunde-icon">🏠</div>
+                <div>
+                    <div class="kunde-name">Immobilien & Hausverwaltungen</div>
+                    <div class="kunde-loc">Kiel-weit · 80+ Einträge Gewerberegister</div>
+                    <p>Brauchen KI-Automation für Mietanfragen, automatische Exposés und Terminbuchung.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FINANZEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">06 — Finanzen</div>
+        <h2>Was ihr <span style="color:var(--green)">verdient</span></h2>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+            <div
+                style="background:linear-gradient(135deg,var(--blue),#1d4ed8);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:16px;font-weight:700;color:#fff">12-Monats-Projektion · NORDCODE</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.5)">Netto ·
+                    Konservativ · Pro Person</span>
+            </div>
+            <table class="ftable">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Aufträge/Monat</th>
+                        <th>Monatsumsatz</th>
+                        <th>Kosten (Tools etc.)</th>
+                        <th>Netto/Person</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mo. 1–2 · Aufbau</strong></td>
+                        <td>1–2 One-Pager (Gratis/Demo)</td>
+                        <td>0–300€</td>
+                        <td class="neg">−35€</td>
+                        <td class="pos">~0–130€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 3–5 · Erste Kunden</strong></td>
+                        <td>2 One-Pager + 2 Content-Abos</td>
+                        <td>500–700€</td>
+                        <td class="neg">−50€</td>
+                        <td class="pos">~225–325€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 6–9 · Stabil</strong></td>
+                        <td>5 Abos + 1–2 Automationen/Mo.</td>
+                        <td>1.000–1.500€</td>
+                        <td class="neg">−80€</td>
+                        <td class="pos">~460–710€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 10–12 · Skalierung</strong></td>
+                        <td>10 Abos + Upsells</td>
+                        <td>2.000–3.000€</td>
+                        <td class="neg">−120€</td>
+                        <td class="pos">~940–1.440€</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="4"><strong>Kumuliert nach 12 Monaten (gesamt)</strong></td>
+                        <td>~6.000–15.000€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="callout" style="margin-top:16px">
+            <p><strong>Der Unterschied zu anderen Modellen:</strong> Hier wächst die Marge mit der Zeit, weil Prozesse
+                skalieren. Der 10. Content-Abo-Kunde kostet fast keine zusätzliche Arbeit, weil wir Templates und
+                KI-Workflows nutzen. <strong>Einmal gebaut, n-mal verkauft.</strong></p>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- TIMELINE -->
+    <div class="sec-inner">
+        <div class="eyebrow">07 — Der Fahrplan</div>
+        <h2>Die ersten <span style="color:var(--accent)">12 Wochen</span></h2>
+        <div class="tl">
+            <div class="tl-item">
+                <div class="tl-phase">Woche 1 · Setup</div>
+                <div class="tl-title">Fundament legen</div>
+                <div class="tl-body"><strong>Julian/Nicklas:</strong> Demo-Website für 2–3 Branchen bauen (Friseur,
+                    Restaurant, Handwerk). Je 1 Stunde. Kein Kunde, nur Portfolio. KI-Stack aktivieren: ChatGPT Team +
+                    Canva Pro + Buffer Free. <br><strong>Paul:</strong> Liste von 30 Kieler Betrieben ohne Website oder
+                    schlechter Instagram-Präsenz erstellen. Holtenauer Str. abgelaufen, 10 Potenzial-Kandidaten
+                    gefunden.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-phase">Woche 2–3 · Erster Auftrag</div>
+                <div class="tl-title">Paul geht rein — mit Demo in der Hand</div>
+                <div class="tl-body">Paul betritt einen Friseursalon in Ravensberg und zeigt eine fertige Demo-Website
+                    (120 Sek. Präsentation auf dem Handy). Preis: "149€, fertig in 48h." Bei 10 Betrieben: mindestens 1
+                    Ja. <strong>Erstes Geld.</strong> Julian liefert die finale Website in 1 Tag.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-phase">Monat 2–3 · Aufbauen</div>
+                <div class="tl-title">2–3 Kunden, erste Abos anbieten</div>
+                <div class="tl-body">Jeden One-Pager-Kunden nach 2 Wochen fragen: "Wollt ihr, dass wir auch euren
+                    Instagram machen? 99€/Monat, wir kümmern uns um alles." <strong>Upsell-Conversion ist hier extrem
+                        hoch</strong> – der Betreiber kennt und vertraut euch bereits.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-phase">Monat 4–6 · Skalierung</div>
+                <div class="tl-title">5 Abos = 495€ wiederkehrendes Einkommen</div>
+                <div class="tl-body">5 Content-Abo-Kunden brauchen ~6h Arbeit pro Woche total (ChatGPT für Posts, Canva
+                    für Grafiken, Buffer scheduled). <strong>Paul akquiriert weiter,</strong> Julian pflegt
+                    Bestandskunden und baut erste KI-Automationen für Premium-Kunden.</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-phase">Monat 7–12 · Professionalisierung</div>
+                <div class="tl-title">GbR gründen, Preise erhöhen, Prozesse straffen</div>
+                <div class="tl-body">Bei 1.000€+/Monat Umsatz: <strong>GbR gründen</strong> (je ~20€ Gewerbeanmeldung).
+                    Lexoffice für Buchhaltung (~7€/Mo.). WhatsApp-Bots und Automationen als eigenständige Produkte
+                    vermarkten. Ziel: 5–10 Abos + 2–3 Automationen/Quartal.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PRO/CON -->
+    <div class="sec-inner">
+        <div class="eyebrow">08 — Abwägung</div>
+        <h2>Ehrliches <span style="color:var(--text)">Pro/Contra</span></h2>
+        <div class="procon">
+            <div class="pro-box" style="border-top-color:var(--accent)">
+                <h4 style="color:var(--accent)">✓ Dafür spricht</h4>
+                <ul>
+                    <li>0€ Startkapital – alles mit bestehenden Tools machbar</li>
+                    <li>Nutzt unsere stärkste Fähigkeit: KI + Programmierung</li>
+                    <li>Content-Abo = passives Recurring Revenue (MRR)</li>
+                    <li>Extrem hohe Marge – fast kein Wareneinsatz</li>
+                    <li>Jedes Ergebnis ist ein Portfolio-Stück für den nächsten Kunden</li>
+                    <li>Kombination mit Feed Kiel und Content Duo möglich</li>
+                    <li>Einmal ein Workflow gebaut = n-mal verkaufen</li>
+                    <li>KI macht 80% der Arbeit – wir liefern das Ergebnis</li>
+                </ul>
+            </div>
+            <div class="con-box">
+                <h4>✗ Dagegen spricht</h4>
+                <ul>
+                    <li>Erste 2 Kunden müssen wir evtl. umsonst / sehr günstig bedienen als Proof</li>
+                    <li>Kunden müssen erst verstehen, was KI-Automation ist</li>
+                    <li>Wartung der Produkte nötig (Updates, Fixes, Änderungswünsche)</li>
+                    <li>Churn-Gefahr bei Content-Abos (Kunden kündigen nach 2–3 Monaten)</li>
+                    <li>Braucht verlässliche Kommunikation seitens Paul</li>
+                </ul>
+            </div>
+        </div>
+        <div class="verdict">
+            <p><strong>Fazit:</strong> Das ist unser Ding. Es nutzt exakt das, was wir gut können. KI ist unser
+                Werkzeug, Paul ist unser Closer, und Kiel ist voll von Betrieben die genau sowas brauchen. <strong>Wir
+                    bauen Demo-Websites, laufen damit in Läden rein, und closen noch am selben Tag. Das ist der
+                    Plan.</strong></p>
+        </div>
+
+        <!-- RECHTLICHES -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">09 — Rechtliches</div>
+            <h2>Was wir <span style="color:var(--green)">brauchen</span></h2>
+            <div class="recht-grid">
+                <div class="recht">
+                    <div class="recht-tag">Pflicht · Sofort</div>
+                    <h4>Gewerbeanmeldung</h4>
+                    <p>Stadtamt Kiel, Rathausplatz 4 – oder online. <strong>~30€.</strong> Tätigkeit:
+                        "IT-Dienstleistung, Websiteerstellung und KI-gestützte Content-Erstellung." Kein Meistertitel
+                        nötig.</p>
+                </div>
+                <div class="recht">
+                    <div class="recht-tag">Empfehlung · Sofort</div>
+                    <h4>Kleinunternehmer §19 UStG</h4>
+                    <p>Bis 25.000€ Jahresumsatz: keine Umsatzsteuer-Abführung. Vereinfachte Buchführung.
+                        <strong>Lexoffice ~7€/Mo.</strong> reicht vollständig aus. Kein Steuerberater in Phase 1 nötig.
+                    </p>
+                </div>
+                <div class="recht warn">
+                    <div class="recht-tag">Prüfen · Wichtig</div>
+                    <h4>Urheberrecht bei KI-Content</h4>
+                    <p>KI-generierter Content gehört dem Ersteller (euch). Aber: Fotos vom Kunden-Betrieb brauchen
+                        schriftliche Freigabe. <strong>Kurze Einverständniserklärung</strong> beim Erstkontakt einholen.
+                    </p>
+                </div>
+                <div class="recht warn">
+                    <div class="recht-tag">Ab 1.000€ Umsatz</div>
+                    <h4>GbR oder Einzelgewerbe</h4>
+                    <p>Aktuell können beide einzeln als Einzelgewerbe starten. Ab stabilem Umsatz: <strong>GbR-Vertrag
+                            aufsetzen</strong> (regelt Gewinnverteilung, Haftung, Arbeitsumfang). Vorlage kostenlos
+                        online.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom:12px"><a href="index.html">← Zurück zur Übersicht</a> &nbsp;·&nbsp; <a
+                href="feedkiel.html">Nächste Idee: Feed Kiel →</a></div>
+        JULIAN · PAUL · NICKLAS — KIEL BUSINESS PITCH 2026
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            document.getElementById('progressBar').style.width = p + '%';
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+        });
+    </script>
+</body>
+
+</html>

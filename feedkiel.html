@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Kiel SMM – Business Plan 2026</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .pakete {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 24px;
+        }
+
+        .paket {
+            background: var(--card);
+            padding: 28px 22px;
+            position: relative;
+            transition: background .2s;
+        }
+
+        .paket:hover {
+            background: var(--card-h);
+        }
+
+        .paket.star {
+            background: linear-gradient(160deg, rgba(166, 230, 0, .06), rgba(6, 214, 160, .04));
+        }
+
+        .p-lbl {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .p-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .p-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--lime);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .p-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--pink);
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 2px;
+        }
+
+        .plist {
+            list-style: none;
+        }
+
+        .plist li {
+            font-size: 12px;
+            color: var(--text2);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+        }
+
+        .plist li::before {
+            content: '✓';
+            color: var(--lime);
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .plist li:last-child {
+            border-bottom: none;
+        }
+
+        .wf {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 16px;
+        }
+
+        .wf-step {
+            background: var(--card);
+            padding: 22px 18px;
+            transition: background .2s;
+        }
+
+        .wf-step:hover {
+            background: var(--card-h);
+        }
+
+        .wf-n {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 40px;
+            color: var(--border);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .wf-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .wf-tool {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--pink);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .wf-desc {
+            font-size: 11.5px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .wf-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--muted);
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+
+        .branchen-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .branchen-table th {
+            background: var(--surface);
+            padding: 12px 16px;
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .branchen-table td {
+            padding: 13px 16px;
+            font-size: 13px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text2);
+        }
+
+        .branchen-table tr:hover td {
+            background: #0d0d0d;
+        }
+
+        .diff {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            padding: 2px 7px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+
+        .easy {
+            background: rgba(6, 214, 160, .15);
+            color: var(--green);
+        }
+
+        .med {
+            background: rgba(251, 191, 36, .12);
+            color: var(--yellow);
+        }
+
+        .stars-g {
+            color: var(--green);
+        }
+
+        @media(max-width:640px) {
+
+            .pakete,
+            .wf {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">← PITCH '26</a>
+        <div class="nav-links">
+            <a href="index.html">Übersicht</a>
+            <a href="nordcode.html">NORDCODE</a>
+            <a href="feedkiel.html" class="active">Feed Kiel</a>
+            <a href="contentduo.html">Content</a>
+            <a href="microvend.html">MicroVend</a>
+            <a href="kielclean.html">KielClean</a>
+        </div>
+    </nav>
+
+    <div class="page-hero"
+        style="min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 28px 48px;position:relative;overflow:hidden;background:linear-gradient(160deg,#080508 0%,#05050a 100%);">
+        <div class="hero-bg-num" style="color:var(--green)">02</div>
+        <div style="max-width:900px;margin:0 auto;width:100%;position:relative;z-index:1;">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <span class="rank-badge"
+                style="background:rgba(6,214,160,.1);color:var(--green);border:1px solid rgba(6,214,160,.25);">🌱 Platz
+                2 — Recurring Revenue Machine</span>
+            <h1><span style="color:var(--green)">FEED</span><br><span style="color:var(--lime)">KIEL</span><br><span
+                    style="color:var(--muted);font-size:.5em;letter-spacing:-1px">SMM AGENCY</span></h1>
+            <p class="lead" style="max-width:580px;margin-bottom:16px">KI-gestütztes Social Media Management für Kieler
+                Kleinbetriebe. Was früher ein 3-Mann-Team in einer Woche erledigte, machen wir zu zweit in <strong>90
+                    Minuten</strong>. Das ist unsere Marge.</p>
+            <div class="kpi-strip">
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--green)">0€</div>
+                    <div class="kpi-l">Startkapital</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--lime)">Tag 7</div>
+                    <div class="kpi-l">Erster Auftrag</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--cyan)">745€</div>
+                    <div class="kpi-l">5 Kunden × 149€</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--yellow)">6h</div>
+                    <div class="kpi-l">Aufwand/Woche</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--green)">400€</div>
+                    <div class="kpi-l">Ziel/Person Mo.6</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WARUM -->
+    <div class="sec-inner">
+        <div class="eyebrow">01 — Das Modell</div>
+        <h2>Warum das in Kiel <span style="color:var(--green)">funktioniert</span></h2>
+        <div class="g2">
+            <div class="card">
+                <h3 style="color:var(--lime)">Die Lücke im Markt</h3>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8">Kieler Kleinbetriebe wissen, dass sie auf
+                    Instagram präsent sein müssen. Die meisten tun es trotzdem nicht – weil sie <strong
+                        style="color:var(--text)">keine Zeit, kein Know-How und kein Budget für eine Agentur</strong>
+                    haben. Eine klassische Social-Media-Agentur kostet <strong
+                        style="color:var(--text)">800–3.000€/Mo.</strong> Das ist für ein Café in Gaarden
+                    undenkbar.<br><br>Wir kommen mit 79–249€/Monat. Das ist weniger als eine Anzeige in der Kieler
+                    Nachrichten.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--lime)">Der KI-Hebel</h3>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8">Der entscheidende Unterschied zu anderen
+                    Schüler-Agenturen: wir nutzen KI für den Content. <strong style="color:var(--text)">ChatGPT, Claude,
+                        Canva AI.</strong> Was früher ein Team von 3 Leuten in einer Woche erledigte, machen wir zu
+                    zweit in 90 Minuten.<br><br>Bei 5 Kunden à 149€/Mo. = <strong style="color:var(--lime)">745€
+                        recurring</strong> bei ~6h echter Arbeit pro Woche. Der Rest läuft automatisch über Buffer.</p>
+            </div>
+        </div>
+
+        <!-- ROLLEN -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">02 — Wer macht was</div>
+            <h2>Rollen im <span style="color:var(--green)">Feed Kiel Team</span></h2>
+            <div class="g2">
+                <div class="card" style="border-top:3px solid var(--lime)">
+                    <h3 style="color:var(--lime)">DU + NICKLAS — THE ENGINE</h3>
+                    <div
+                        style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px">
+                        KI · Content · Editing · Automatisierung</div>
+                    <ul class="rich-list">
+                        <li>Monatliche Content-Pakete per KI generieren (30 Posts in 90 Min.)</li>
+                        <li>Grafiken & Reels in Canva Pro erstellen und bearbeiten</li>
+                        <li>Captions mit ChatGPT schreiben & optimieren</li>
+                        <li>Content-Kalender in Notion pro Kunde pflegen</li>
+                        <li>Automatisches Posting über Buffer einrichten</li>
+                        <li>Monatliche Analytics-Reports zusammenstellen</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top:3px solid var(--green)">
+                    <h3 style="color:var(--green)">PAUL — THE FACE</h3>
+                    <div
+                        style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px">
+                        Akquise · Kundenpflege · Kommunikation</div>
+                    <ul class="rich-list">
+                        <li>Kieler Betriebe direkt ansprechen – immer persönlich</li>
+                        <li>WhatsApp-Kanal: täglich für alle Kunden erreichbar</li>
+                        <li>Monatliche Check-ins per Anruf (15 Min. pro Kunde)</li>
+                        <li>Neue Kunden scouten: Gaarden, Holtenauer Str., Innenstadt</li>
+                        <li>Rechnungen stellen und Mahnungen senden</li>
+                        <li>Referenzen und Empfehlungen aktiv einsammeln</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PAKETE -->
+    <div class="sec-inner">
+        <div class="eyebrow">03 — Preismodell</div>
+        <h2>Drei Pakete. <span style="color:var(--lime)">Ein Ziel: Abos.</span></h2>
+        <div class="pakete">
+            <div class="paket">
+                <div class="p-lbl">Einstieg · Einmalig</div>
+                <div class="p-title">Starter</div>
+                <span class="p-price">79€</span>
+                <ul class="plist">
+                    <li>10 fertige Posts inkl. Captions</li>
+                    <li>Lieferung als ZIP + Drive-Ordner</li>
+                    <li>Kunde postet selbst</li>
+                    <li>Perfekt als Türöffner</li>
+                    <li>Kein Risiko für den Kunden</li>
+                </ul>
+            </div>
+            <div class="paket star">
+                <div class="p-badge">★ Cashflow-King</div>
+                <div class="p-lbl">Kern-Produkt · Monatlich</div>
+                <div class="p-title">Full Feed</div>
+                <span class="p-price">149€ <span style="font-size:14px;color:var(--muted)">/Mo.</span></span>
+                <ul class="plist">
+                    <li>30 Posts + Captions/Monat</li>
+                    <li>3 Reels (15–30 Sek.) fertig</li>
+                    <li>Automatisches Posting eingerichtet</li>
+                    <li>Monatlicher Mini-Report</li>
+                    <li><strong>5 Kunden = 745€/Mo. recurring</strong></li>
+                </ul>
+            </div>
+            <div class="paket">
+                <div class="p-lbl">Premium · Monatlich</div>
+                <div class="p-title">Growth</div>
+                <span class="p-price">249€ <span style="font-size:14px;color:var(--muted)">/Mo.</span></span>
+                <ul class="plist">
+                    <li>Alles aus Full Feed</li>
+                    <li>5 Reels mit Trending-Sounds</li>
+                    <li>TikTok-Account zusätzlich</li>
+                    <li>Wöchentliche Story-Templates</li>
+                    <li>Konkurrenz-Monitoring</li>
+                </ul>
+            </div>
+        </div>
+        <div class="callout">
+            <p><strong>Die Strategie:</strong> Starter-Paket (79€) ist der Türöffner – kein Risiko für den Kunden. Der
+                Betreiber sieht das Ergebnis, vertraut euch, und wechselt fast automatisch auf das Abo. <strong>3
+                    Full-Feed-Abos = 447€/Mo. bei ~4,5h Arbeit zusammen.</strong> Das sind 99€/h für zwei Schüler.</p>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- BRANCHE TABLE -->
+    <div class="sec-inner">
+        <div class="eyebrow">04 — Branchen-Strategie</div>
+        <h2>Was ihr für <span style="color:var(--lime)">wen postet</span></h2>
+        <p class="lead" style="max-width:600px;margin-bottom:0">Nicht jeder Betrieb bekommt dasselbe. Social Media ist
+            kein Copy-Paste. Für jede Branche gibt es eine andere Strategie.</p>
+        <table class="branchen-table">
+            <thead>
+                <tr>
+                    <th>Branche</th>
+                    <th>Ziel auf Instagram</th>
+                    <th>Hauptformat</th>
+                    <th>Schwierigkeit</th>
+                    <th>Kieler Standorte</th>
+                    <th>Paket</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>🍕 Restaurant/Café</strong></td>
+                    <td>Hunger auslösen, Besuche</td>
+                    <td>Fotos + Reels</td>
+                    <td><span class="diff easy">Einfach</span></td>
+                    <td>Holtenauer Str., Gaarden</td>
+                    <td>Full Feed 149€</td>
+                </tr>
+                <tr>
+                    <td><strong>✂️ Beauty/Friseur</strong></td>
+                    <td>Termine buchen</td>
+                    <td>Vorher/Nachher</td>
+                    <td><span class="diff easy">Einfach</span></td>
+                    <td>Holtenauer Str., Ravensberg</td>
+                    <td>Full Feed 149€</td>
+                </tr>
+                <tr>
+                    <td><strong>🔧 Handwerk/KFZ</strong></td>
+                    <td>Anfragen generieren</td>
+                    <td>Vorher/Nachher</td>
+                    <td><span class="diff med">Mittel</span></td>
+                    <td>Gaarden, Wellingdorf</td>
+                    <td>Starter 79€</td>
+                </tr>
+                <tr>
+                    <td><strong>🏋️ Fitness</strong></td>
+                    <td>Mitglieder gewinnen</td>
+                    <td>Motivation-Reels</td>
+                    <td><span class="diff med">Mittel</span></td>
+                    <td>Kiel-weit (33+ Studios)</td>
+                    <td>Growth 249€</td>
+                </tr>
+                <tr>
+                    <td><strong>🌿 Floristik</strong></td>
+                    <td>Käufe auslösen</td>
+                    <td>Ästhetik-Fotos</td>
+                    <td><span class="diff easy">Einfach</span></td>
+                    <td>Innenstadt, Wochenmarkt</td>
+                    <td>Full Feed 149€</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- KI WORKFLOW -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">05 — Wie ihr das macht</div>
+            <h2>Der <span style="color:var(--lime)">KI-Workflow</span></h2>
+            <div class="wf">
+                <div class="wf-step">
+                    <div class="wf-n">01</div>
+                    <div class="wf-title">Briefing</div>
+                    <div class="wf-tool">Notion / Google Docs</div>
+                    <div class="wf-desc">Monatsthemen und Aktionen vom Kunden erfassen (Angebote, Events, neue Produkte)
+                    </div>
+                    <div class="wf-time">⏱ 15 Min./Kunde</div>
+                </div>
+                <div class="wf-step">
+                    <div class="wf-n">02</div>
+                    <div class="wf-title">Content generieren</div>
+                    <div class="wf-tool">ChatGPT / Claude</div>
+                    <div class="wf-desc">30 Captions für den Monat generieren. Prompt-Template: „10 Instagram-Captions
+                        für [Branche] in Kiel, Ton: [X], 2 Sätze max."</div>
+                    <div class="wf-time">⏱ 20 Min./Kunde</div>
+                </div>
+                <div class="wf-step">
+                    <div class="wf-n">03</div>
+                    <div class="wf-title">Grafiken erstellen</div>
+                    <div class="wf-tool">Canva Pro / CapCut</div>
+                    <div class="wf-desc">Templates einmal bauen, Fotos austauschen. Reels mit Auto-Cut auf Beat. Einmal
+                        einrichten → immer wiederverwenden.</div>
+                    <div class="wf-time">⏱ 45 Min./Kunde</div>
+                </div>
+                <div class="wf-step">
+                    <div class="wf-n">04</div>
+                    <div class="wf-title">Auto-Posting</div>
+                    <div class="wf-tool">Buffer / Later</div>
+                    <div class="wf-desc">Alle 30 Posts für den Monat auf einmal in Buffer hochladen und timen. Danach
+                        läuft alles automatisch.</div>
+                    <div class="wf-time">⏱ 10 Min./Kunde</div>
+                </div>
+            </div>
+            <div class="callout">
+                <p><strong>Ergebnis:</strong> ~90 Min. Arbeit pro Kunde und Monat. Bei 5 Kunden à 149€ = 745€ recurring
+                    für ~7,5h Aufwand im Monat. <strong>Das sind 99€ Stundenlohn.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FINANZEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">06 — Zahlen</div>
+        <h2>12-Monate <span style="color:var(--green)">Projektion</span></h2>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+            <div
+                style="background:linear-gradient(135deg,rgba(6,214,160,.3),rgba(166,230,0,.15));padding:18px 24px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:16px;font-weight:800;color:#fff">Feed Kiel SMM — Umsatzplan</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(255,255,255,.5)">Netto ·
+                    Pro Person · Split 50/50</span>
+            </div>
+            <table class="ftable">
+                <thead>
+                    <tr>
+                        <th>Phase</th>
+                        <th>Kunden</th>
+                        <th>Monatsumsatz</th>
+                        <th>Zeitaufwand/Woche</th>
+                        <th>Netto/Person</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mo. 1–2 · Traction</strong></td>
+                        <td>1–2 Starter-Pakete</td>
+                        <td>80–160€</td>
+                        <td>~2h</td>
+                        <td class="pos">30–70€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 3–4 · Erste Abos</strong></td>
+                        <td>2 Starter + 1–2 Abos</td>
+                        <td>300–450€</td>
+                        <td>~4h</td>
+                        <td class="pos">130–200€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 5–6 · Stabil</strong></td>
+                        <td>4–5 Full Feed Abos</td>
+                        <td>600–745€</td>
+                        <td>~6h</td>
+                        <td class="pos">280–350€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 7–9 · Skalierung</strong></td>
+                        <td>6–8 Abos gemischt</td>
+                        <td>900–1.400€</td>
+                        <td>~8h</td>
+                        <td class="pos">430–670€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mo. 10–12 · Professionell</strong></td>
+                        <td>10+ Abos + Growth</td>
+                        <td>1.500–2.500€</td>
+                        <td>~10h</td>
+                        <td class="pos">700–1.200€</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="4"><strong>Kumuliert nach 12 Monaten (gesamt)</strong></td>
+                        <td>~4.000–10.000€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PRO/CON -->
+    <div class="sec-inner">
+        <div class="eyebrow">07 — Abwägung</div>
+        <h2>Ehrliches <span style="color:var(--text)">Pro/Contra</span></h2>
+        <div class="procon">
+            <div class="pro-box" style="border-top-color:var(--green)">
+                <h4 style="color:var(--green)">✓ Dafür spricht</h4>
+                <ul>
+                    <li>0€ Startkapital – alles mit Free-Tools machbar</li>
+                    <li>KI macht 80% der inhaltlichen Arbeit</li>
+                    <li>Monatlich kündbar = leichter zu verkaufen</li>
+                    <li>Wächst passiv: mehr Kunden, nicht mehr Zeit</li>
+                    <li>Paul kann neue Kunden akquirieren während Julians Tools laufen</li>
+                    <li>Perfekt kombinierbar mit NORDCODE Content-Abo</li>
+                </ul>
+            </div>
+            <div class="con-box">
+                <h4>✗ Dagegen spricht</h4>
+                <ul>
+                    <li>Kunden erwarten sofortigen ROI – der kommt oft erst nach 2–3 Monaten</li>
+                    <li>Churn-Gefahr: Kunden kündigen wenn sie keinen Umsatz sehen</li>
+                    <li>Wir brauchen echte Fotos vom Kunden – Koordination nötig</li>
+                    <li>Nicht unser stärkster Skill – Julian/Nicklas sind Entwickler, keine SMM-Profis</li>
+                </ul>
+            </div>
+        </div>
+        <div class="verdict">
+            <p><strong>Fazit:</strong> Feed Kiel ist ein solides zweites Standbein. Einfacher zu starten als NORDCODE,
+                aber weniger skalierbarer langfristig. <strong>Ideal als Einstiegsprodukt</strong> während NORDCODE
+                aufgebaut wird – Paul kann direkt loslegen, Julian liefert die KI-Assets.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom:12px"><a href="nordcode.html">← NORDCODE</a> &nbsp;·&nbsp; <a
+                href="index.html">Übersicht</a> &nbsp;·&nbsp; <a href="contentduo.html">Content Duo →</a></div>
+        JULIAN · PAUL · NICKLAS — KIEL BUSINESS PITCH 2026
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            document.getElementById('progressBar').style.width = p + '%';
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+        });
+    </script>
+</body>
+
+</html>

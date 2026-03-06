@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KielClean & Care – Business Plan 2026</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        .svcs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .svc {
+            background: var(--card);
+            padding: 26px 20px;
+            transition: background .2s;
+        }
+
+        .svc:hover {
+            background: var(--card-h);
+        }
+
+        .svc-icon {
+            font-size: 22px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .svc-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .svc-price {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--green);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .svc p {
+            font-size: 11.5px;
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .target-boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .tb {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 18px;
+            display: grid;
+            grid-template-columns: 4px 1fr;
+            gap: 14px;
+        }
+
+        .tb-stripe {
+            border-radius: 2px;
+        }
+
+        .tb-prio {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--muted);
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .tb h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .tb p {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .tb .kiel {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--pink);
+            letter-spacing: .08em;
+        }
+
+        .risk-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .risk-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr;
+            gap: 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .rlvl {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .hoch {
+            background: rgba(255, 56, 100, .1);
+            color: var(--pink);
+        }
+
+        .mittel {
+            background: rgba(251, 191, 36, .08);
+            color: var(--yellow);
+        }
+
+        .low {
+            background: rgba(6, 214, 160, .08);
+            color: var(--green);
+        }
+
+        .rproblem,
+        .rloesung {
+            padding: 14px 16px;
+            font-size: 11.5px;
+            border-left: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .r-lbl {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            margin-bottom: 4px;
+            opacity: .6;
+        }
+
+        .recht-g {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .r-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--green);
+            border-radius: 0 0 8px 8px;
+            padding: 16px;
+        }
+
+        .r-box.w {
+            border-top-color: var(--yellow);
+        }
+
+        .r-box.d {
+            border-top-color: var(--pink);
+        }
+
+        .r-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .r-box h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .r-box p {
+            font-size: 11.5px;
+            color: var(--text2);
+            line-height: 1.65;
+        }
+
+        @media(max-width:640px) {
+            .svcs {
+                grid-template-columns: 1fr;
+            }
+
+            .target-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .risk-row {
+                grid-template-columns: 1fr;
+            }
+
+            .recht-g {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <nav id="nav">
+        <a href="index.html" class="nav-logo">← PITCH '26</a>
+        <div class="nav-links">
+            <a href="index.html">Übersicht</a>
+            <a href="nordcode.html">NORDCODE</a>
+            <a href="feedkiel.html">Feed Kiel</a>
+            <a href="contentduo.html">Content</a>
+            <a href="microvend.html">MicroVend</a>
+            <a href="kielclean.html" class="active">KielClean</a>
+        </div>
+    </nav>
+
+    <div
+        style="min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 28px 48px;position:relative;overflow:hidden;background:linear-gradient(160deg,#080805,#050808);">
+        <div class="hero-bg-num" style="color:var(--yellow)">05</div>
+        <div style="max-width:900px;margin:0 auto;width:100%;position:relative;z-index:1;">
+            <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+            <span class="rank-badge"
+                style="background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.25);">🧹
+                Platz 5 — Sofort-Cash</span>
+            <h1><span style="color:var(--yellow)">KIEL</span><br><span style="color:var(--text2)">CLEAN</span><br><span
+                    style="color:var(--muted);font-size:.5em;letter-spacing:-1px">&amp; CARE · MICRO-SERVICE</span></h1>
+            <p class="lead" style="max-width:580px;margin-bottom:16px">Hausmeister- und Reinigungsservice für Kieler
+                Mehrfamilienhäuser und Kleingewerbe. <strong>Keine Maschine, keine Lagerfläche, kein KI.</strong> Nur
+                Zeit, Zuverlässigkeit und ein Kieler Netzwerk. Break-Even ab Monat 1.</p>
+            <div class="kpi-strip">
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--yellow)">~300€</div>
+                    <div class="kpi-l">Startkapital</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--lime)">Monat 1</div>
+                    <div class="kpi-l">Break-Even</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--green)">1.500€</div>
+                    <div class="kpi-l">Ziel Netto Mo.6</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-v" style="color:var(--cyan)">30€</div>
+                    <div class="kpi-l">Ø-Stundenlohn</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WARUM -->
+    <div class="sec-inner">
+        <div class="eyebrow">01 — Das Modell</div>
+        <h2>Warum das in Kiel <span style="color:var(--green)">funktioniert</span></h2>
+        <div class="g2">
+            <div class="card">
+                <h3 style="color:var(--lime)">Das strukturelle Problem</h3>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8">Kiel hat <strong
+                        style="color:var(--text)">über 247.000 Einwohner</strong>, davon rund 46.000 allein auf dem
+                    Ostufer. Gaarden gewinnt bis 2031 rund 4.700 neue Einwohner, Neubauprojekte entstehen
+                    stadtübergreifend. <strong style="color:var(--text)">Jede neue Wohneinheit braucht
+                        Treppenhausreinigung, Gartenpflege, Winterdienst</strong> – und kein Eigentümer will das selbst
+                    machen.<br><br>Gleichzeitig: struktureller Fachkräftemangel in der Kieler Gebäudedienstleistung. Die
+                    Nachfrage ist ungedeckt.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--lime)">Die Lücke</h3>
+                <p style="font-size:13px;color:var(--text2);line-height:1.8">Große Reinigungsfirmen in Kiel bedienen
+                    Gewerbekunden mit Volumen. Private Wohnungseigentümer, kleine Hausverwaltungen mit 3–8 Einheiten und
+                    Kleingewerbetreibende fallen durch das Raster – <strong style="color:var(--text)">zu klein für die
+                        Großen, zu aufwendig für Plattformkräfte.</strong><br><br><strong style="color:var(--text)">Dein
+                        Zielmarkt:</strong> Hausverwaltungen mit 3–15 Einheiten in Ravensberg, Schreventeich,
+                    Südfriedhof. Pauschalverträge, persönliche Verlässlichkeit als USP.</p>
+            </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">02 — Was du anbietest</div>
+            <h2>Leistungen & <span style="color:var(--yellow)">Preise</span></h2>
+            <div class="svcs">
+                <div class="svc">
+                    <span class="svc-icon">🏢</span>
+                    <div class="svc-name">Treppenhausreinigung</div>
+                    <div class="svc-price">18–25€ / Etage · wöchentlich</div>
+                    <p>Kernleistung. Pflicht in fast jedem Mietvertrag. <strong>4 Etagen à 20€ = 80€ pro
+                            Termin</strong>, 2× wöchentlich = 640€/Monat pro Objekt. Stabilstes Wiederkehreinkommen.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-icon">🌿</span>
+                    <div class="svc-name">Garten- & Grünanlagenpflege</div>
+                    <div class="svc-price">28–45€ / Std. · saisonal</div>
+                    <p>Rasenmähen, Heckenschnitt, Laubbeseitigung. Frühjahr–Herbst. Kombination mit Treppenhausreinigung
+                        = doppelter Auftragswert bei gleicher Anfahrt.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-icon">❄️</span>
+                    <div class="svc-name">Winterdienst</div>
+                    <div class="svc-price">80–200€ / Monat Pauschale</div>
+                    <p>Kieler Winter ist mild, aber Streupflicht gilt. Monatspauschale Oktober–März.
+                        Verkehrssicherungspflicht liegt beim Eigentümer – du übernimmst sie vertraglich.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-icon">🔧</span>
+                    <div class="svc-name">Kleine Instandhaltung</div>
+                    <div class="svc-price">35–50€ / Std.</div>
+                    <p>Glühbirnen, Türgriffe, Dichtungen, Silikon. Keine meisterpflichtigen Arbeiten. Extrem hohe
+                        Kundenbindung – der Vermieter ruft bei jedem Problem an.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-icon">🪟</span>
+                    <div class="svc-name">Fenster- & Büroreinigung</div>
+                    <div class="svc-price">4–6€ / Fenster · quartalsweise</div>
+                    <p>Add-on zu bestehenden Verträgen. Geringe Zusatzzeit, direkte Mehreinnahme. Kieler
+                        Coworking-Gebäude als Zusatzkunden.</p>
+                </div>
+                <div class="svc">
+                    <span class="svc-icon">📦</span>
+                    <div class="svc-name">Wohnungsübergabe / Endreinigung</div>
+                    <div class="svc-price">120–280€ / Einheit einmalig</div>
+                    <p>Hohes Einmalvolumen. Kiel-typische Fluktuation (25k Studierende, Marinestandort). Vermittlung
+                        über lokale Makler und Hausverwaltungen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- ZIELGRUPPEN -->
+    <div class="sec-inner">
+        <div class="eyebrow">03 — Erstakquise</div>
+        <h2>Kieler Zielgruppen – <span style="color:var(--lime)">konkrete Erstansprache</span></h2>
+        <div class="target-boxes">
+            <div class="tb">
+                <div class="tb-stripe" style="background:var(--pink)"></div>
+                <div>
+                    <div class="tb-prio">Priorität 1 · Höchstes Volumen</div>
+                    <h3>Kleine Hausverwaltungen</h3>
+                    <p>Verwaltungen mit 5–20 Einheiten haben oft keinen festen Hausmeistervertrag. Bedarf:
+                        Treppenhausreinigung, Grünpflege, Winterdienst als Paket. Direktansprache funktioniert.</p>
+                    <div class="kiel">→ Gewerberegister Kiel: Stichwort "Hausverwaltung" · ~80 Einträge</div>
+                </div>
+            </div>
+            <div class="tb">
+                <div class="tb-stripe" style="background:var(--green)"></div>
+                <div>
+                    <div class="tb-prio">Priorität 1 · Schnellster Einstieg</div>
+                    <h3>Wohnungseigentümer direkt</h3>
+                    <p>2–4-Familienhäuser in Ravensberg, Schreventeich, Südfriedhof. Ravensberg allein: 12.277 Einwohner
+                        – dichtes Wohngebiet mit hohem Altbaubestand. Flyer im Briefkasten + Google-Profil reichen.</p>
+                    <div class="kiel">→ Zielgebiete: Ravensberg · Schreventeich · Brunswik · Wik</div>
+                </div>
+            </div>
+            <div class="tb">
+                <div class="tb-stripe" style="background:var(--yellow)"></div>
+                <div>
+                    <div class="tb-prio">Priorität 2 · Saison-Boost</div>
+                    <h3>Studenten-WGs & Vermieter</h3>
+                    <p>25.000 Studierende an CAU = hohe Wohnungsfluktuation. Vermieter brauchen regelmäßig
+                        Endreinigungen. Peak: August–Oktober. eBay Kleinanzeigen Kiel für Direktkontakt.</p>
+                    <div class="kiel">→ eBay KA Kiel + CAU-Schwarzes Brett digital</div>
+                </div>
+            </div>
+            <div class="tb">
+                <div class="tb-stripe" style="background:var(--blue)"></div>
+                <div>
+                    <div class="tb-prio">Priorität 2 · Gewerbe-Segment</div>
+                    <h3>Kleingewerbe & Arztpraxen</h3>
+                    <p>Kieler Arztpraxen, Kanzleien, kleine Büros brauchen zuverlässige Unterhaltsreinigung.
+                        Neumühlen-Dietrichsdorf und Wellingdorf: Gewerbecluster mit vielen KMUs ohne eigenen Service.
+                    </p>
+                    <div class="kiel">→ Gewerbegebiet Neumühlen-Dietrichsdorf · Wellingdorf</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">04 — Fahrplan</div>
+            <h2>Die ersten <span style="color:var(--yellow)">18 Monate</span></h2>
+            <div class="tl">
+                <div class="tl-item">
+                    <div class="tl-phase">Woche 1 · Setup (~300€)</div>
+                    <div class="tl-title">Anmelden, ausrüsten, loslegen</div>
+                    <div class="tl-body">Gewerbeanmeldung Stadtamt Kiel (~30€). Reinigungsmittel beim Metro Kiel oder
+                        Böttcher B2B einkaufen: ~150€. Haftpflichtversicherung Gewerbe: ~100–150€/Jahr.
+                        <strong>Flyer-Verteilung in Ravensberg und Schreventeich.</strong></div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Monat 1–3 · Aufbau</div>
+                    <div class="tl-title">1–2 Dauerkunden gewinnen</div>
+                    <div class="tl-body"><strong>Zielbereich:</strong> 1–2 Objekte mit Pauschalvertrag
+                        (Treppenhausreinigung wöchentlich). Umsatz: 400–700€/Mo., Netto nach Kosten: 300–520€/Mo.
+                        Start-Invest amortisiert sich im ersten Monat. Google Business Profil anlegen.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Monat 4–9 · Stabilisierung</div>
+                    <div class="tl-title">3–5 Objekte als Dauerkunden</div>
+                    <div class="tl-body">Aktives Marketing über eBay KA und Gewerberegister. <strong>Weiterempfehlungen
+                            werden hier zum Hauptkanal</strong> – ein zufriedener Verwalter kennt fünf andere. Netto:
+                        1.200–2.200€/Mo. bei 3–5 Objekten.</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Monat 10–18 · Skalierung</div>
+                    <div class="tl-title">5–8 Objekte + erste Hilfskraft</div>
+                    <div class="tl-body">Ab 2.000€+ Netto: erste 400h-Aushilfskraft anlernen. <strong>Übergang vom
+                            Einzelbetrieb zur Mini-Firma.</strong> Du koordinierst, andere arbeiten. Netto-Potenzial:
+                        bis 3.500€/Mo. bei 5–8 Objekten.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- FINANZEN + RECHTLICHES -->
+    <div class="sec-inner">
+        <div class="eyebrow">05 — Zahlen</div>
+        <h2>Finanzmodell – <span style="color:var(--green)">18 Monate</span></h2>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+            <div style="background:linear-gradient(135deg,rgba(6,214,160,.2),rgba(163,230,53,.08));padding:18px 24px;">
+                <span style="font-size:16px;font-weight:800;color:#fff">KielClean & Care — Projektion</span>
+            </div>
+            <table class="ftable">
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Monat 1–3 · Aufbau</th>
+                        <th>Monat 4–9 · Stabil</th>
+                        <th>Monat 10–18 · Skalierung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Startinvestition (einmalig)</strong></td>
+                        <td class="neg">−300€ (Werkzeug, Versicherung, Anmeldung)</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>Dauerkunden (Pauschalverträge)</td>
+                        <td>1–2 Objekte · 400–700€/Mo.</td>
+                        <td>3–5 Objekte · 1.200–2.000€/Mo.</td>
+                        <td>5–8 Objekte · 2.200–3.500€/Mo.</td>
+                    </tr>
+                    <tr>
+                        <td>Einzelaufträge (Endreinigung, etc.)</td>
+                        <td>100–300€/Mo.</td>
+                        <td>200–500€/Mo.</td>
+                        <td>300–600€/Mo.</td>
+                    </tr>
+                    <tr>
+                        <td>Betriebskosten (Mittel, Fahrt, Versicherung)</td>
+                        <td class="neg">−120–180€/Mo.</td>
+                        <td class="neg">−200–300€/Mo.</td>
+                        <td class="neg">−280–400€/Mo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Netto-Monatseinkommen</strong></td>
+                        <td class="pos">300–820€</td>
+                        <td class="pos">1.200–2.200€</td>
+                        <td class="pos">2.200–3.700€</td>
+                    </tr>
+                    <tr class="total">
+                        <td><strong>Kumuliert nach 18 Monaten</strong></td>
+                        <td colspan="3" class="pos">+22.000–44.000€ Nettoertrag</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- RISIKEN -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">06 — Risiken</div>
+            <h2>Was schief gehen <span style="color:var(--yellow)">kann</span></h2>
+            <div class="risk-grid">
+                <div class="risk-row">
+                    <div class="rlvl hoch">HOCH</div>
+                    <div class="rproblem">
+                        <div class="r-lbl">Problem</div>Kein Auto – Kieler Stadtgebiet für Befüllung /
+                        Materialanlieferung
+                    </div>
+                    <div class="rloesung">
+                        <div class="r-lbl">Lösung</div>Lastenrad + Cargo-Bike für viele Routen in Kiel. Oder:
+                        Zielgebiete in Fahrrad-Reichweite auswählen (Ravensberg, Schreventeich).
+                    </div>
+                </div>
+                <div class="risk-row">
+                    <div class="rlvl mittel">MITTEL</div>
+                    <div class="rproblem">
+                        <div class="r-lbl">Problem</div>Kunden kündigen Pauschalvertrag nach dem ersten Winter
+                    </div>
+                    <div class="rloesung">
+                        <div class="r-lbl">Lösung</div>Saisonale Ergänzungsleistungen anbieten (Frühjahrsputz, Fenster).
+                        Paketbindung mit Jahresvertrag + Rabatt.
+                    </div>
+                </div>
+                <div class="risk-row">
+                    <div class="rlvl low">GERING</div>
+                    <div class="rproblem">
+                        <div class="r-lbl">Problem</div>Haftung bei Schäden beim Kunden (gebrochene Glasur, Kratzer)
+                    </div>
+                    <div class="rloesung">
+                        <div class="r-lbl">Lösung</div>Gewerbliche Haftpflichtversicherung ab ~90€/Jahr (z.B. ERGO,
+                        Hiscox). Klar im Vertrag definieren was covered ist.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECHTLICHES -->
+        <div style="margin-top:40px">
+            <div class="eyebrow">07 — Rechtliches</div>
+            <h2>Was ihr <span style="color:var(--green)">braucht</span></h2>
+            <div class="recht-g">
+                <div class="r-box">
+                    <div class="r-tag">Pflicht · Woche 1</div>
+                    <h4>Gewerbeanmeldung Kiel</h4>
+                    <p>Stadtamt Kiel, Rathausplatz 4 – oder online über Serviceportal SH. <strong>~30€.</strong> Keine
+                        Meisterpflicht für diese Tätigkeiten.</p>
+                </div>
+                <div class="r-box">
+                    <div class="r-tag">Pflicht · Sofort</div>
+                    <h4>Kleinunternehmer §19 UStG</h4>
+                    <p>Bis 25.000€ Jahresumsatz: keine MwSt.-Abführung. <strong>Lexoffice ~7€/Mo.</strong> für
+                        Buchhaltung reicht vollständig.</p>
+                </div>
+                <div class="r-box w">
+                    <div class="r-tag">Wichtig · Woche 1</div>
+                    <h4>Haftpflichtversicherung</h4>
+                    <p>Gewerbliche Betriebshaftpflicht: ab ~90€/Jahr. <strong>Pflicht</strong> bevor der erste Auftrag
+                        stattfindet. ERGO, Hiscox oder VHV.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- PRO/CON -->
+    <div class="sec-inner">
+        <div class="eyebrow">08 — Abwägung</div>
+        <h2>Ehrliches <span style="color:var(--text)">Pro/Contra</span></h2>
+        <div class="procon">
+            <div class="pro-box" style="border-top-color:var(--yellow)">
+                <h4 style="color:var(--yellow)">✓ Dafür spricht</h4>
+                <ul>
+                    <li>Sofort startbar, keine Vorkenntnisse nötig</li>
+                    <li>Break-Even bereits im ersten Monat</li>
+                    <li>Dauerkunden mit Pauschalvertrag = stabiles Einkommen</li>
+                    <li>Jeder Immobilienbesitzer in Kiel sucht zuverlässige Dienste</li>
+                    <li>Null Konkurrenz auf Paket-Angebots-Ebene (Hausverwaltungs-Nische)</li>
+                    <li>Wächst durch Weiterempfehlung fast von selbst</li>
+                </ul>
+            </div>
+            <div class="con-box">
+                <h4>✗ Dagegen spricht</h4>
+                <ul>
+                    <li>Körperliche Arbeit – kein Laptop-Business</li>
+                    <li>Max. Skalierbarkeit durch eigene Arbeitskraft limitiert</li>
+                    <li>30–45€/h ist gut, aber schlechter als Tech-Stundensatz</li>
+                    <li>Kein KI-Hebel – Arbeit bleibt Arbeit bleibt Arbeit</li>
+                    <li>Winterdienst: frühe Aufstehzeiten bei Schnee</li>
+                </ul>
+            </div>
+        </div>
+        <div class="verdict">
+            <p><strong>Fazit:</strong> KielClean ist das solideste, risikoärmste Modell von allen. Break-Even in Monat
+                1, stabile Dauerkunden, kein KI benötigt. <strong>Ideal für Paul als Solostart</strong> während Julian
+                an NORDCODE baut, oder als Backup-Einkommen bei langsamen digitalen Starts. Nicht glamourös, aber
+                verdammt verlässlich.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom:12px"><a href="microvend.html">← MicroVend</a> &nbsp;·&nbsp; <a href="index.html">←
+                Zurück zur Übersicht</a></div>
+        JULIAN · PAUL · NICKLAS — KIEL BUSINESS PITCH 2026
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const p = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+            document.getElementById('progressBar').style.width = p + '%';
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+        });
+    </script>
+</body>
+
+</html>
